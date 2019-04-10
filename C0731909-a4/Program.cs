@@ -13,15 +13,16 @@ namespace C0731909_a4
     class Program
     {
         ArrayList Beowulf;
-        int linecount =  0 ;
-        
-        
+        int linecount = 0;
+
+
         static void Main(string[] args)
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
             p.Run();
             p.lineCount();
+            p.countWords();
 
 
         }
@@ -31,13 +32,13 @@ namespace C0731909_a4
             this.ReadTextFiles();
         }
         public void ReadTextFiles()
-            {
+        {
             using (StreamReader file = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt"))
             {
 
                 int counter = 0;
                 string ln;
-                while((ln = file.ReadLine()) != null)
+                while ((ln = file.ReadLine()) != null)
                 {
                     Console.WriteLine(ln);
                     Beowulf.Add(ln);
@@ -57,10 +58,10 @@ namespace C0731909_a4
         {
             int countletters = 0;
             int countSpaces = 0;
-            foreach(char c in line)
+            foreach (char c in line)
             {
-                if(char.IsLetter(c)) { countletters++; }
-                if(char.IsWhiteSpace(c)) { countSpaces++; }
+                if (char.IsLetter(c)) { countletters++; }
+                if (char.IsWhiteSpace(c)) { countSpaces++; }
 
             }
             return countSpaces;
@@ -69,9 +70,8 @@ namespace C0731909_a4
         public void lineCount()
         {
             string line;
-        
             TextReader reader = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt");
-            while((line = reader.ReadLine()) != null)
+            while ((line = reader.ReadLine()) != null)
             {
                 linecount++;
             }
@@ -81,11 +81,34 @@ namespace C0731909_a4
 
         }
 
-      
-   
+        public void countWords()
+        {
+            StreamReader sr = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt");
+            int counter = 0;
+            string delim = ",";
+            string[] fields = null;
+            string line = null;
+            while (!sr.EndOfStream)
+            {
+                line = sr.ReadLine();
+                line.Trim();
+                fields = line.Split(delim.ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                counter += fields.Length;
 
-       
+            }
 
-       
+            sr.Close();
+            Console.WriteLine("the number of words in the text file is {0}", counter);
+
+
+        }
+
+
+
+
+
+
+
+
     }
 }

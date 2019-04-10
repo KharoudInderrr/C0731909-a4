@@ -69,6 +69,7 @@ namespace C0731909_a4
         public void lineCount()
         {
             string line;
+        
             TextReader reader = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt");
             while((line = reader.ReadLine()) != null)
             {

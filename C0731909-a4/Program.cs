@@ -27,7 +27,7 @@ namespace C0731909_a4
         }
         public void ReadTextFiles()
             {
-            using (StreamReader file = new StreamReader("U:/Users/731909/C0731909-a4.txt"))
+            using (StreamReader file = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt"))
             {
 
                 int counter = 0;
@@ -44,8 +44,21 @@ namespace C0731909_a4
 
 
 
+
             }
 
+        }
+        public int FindNumberOfBlankSpaces(string line)
+        {
+            int countletters = 0;
+            int countSpaces = 0;
+            foreach(char c in line)
+            {
+                if(char.IsLetter(c)) { countletters++; }
+                if(char.IsWhiteSpace(c)) { countSpaces++; }
+
+            }
+            return countSpaces;
         }
 
        

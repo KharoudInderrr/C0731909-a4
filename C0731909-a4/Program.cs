@@ -21,6 +21,7 @@ namespace C0731909_a4
             Program p = new Program();
             p.Beowulf = new ArrayList();
             p.Run();
+            p.lineCount();
 
 
         }
@@ -74,6 +75,8 @@ namespace C0731909_a4
                 linecount++;
             }
             reader.Close();
+
+            Console.WriteLine(linecount);
 
         }
        

@@ -25,6 +25,7 @@ namespace C0731909_a4
             p.lineCount();
             p.countWords();
             p.Foundnumber();
+         
           
            
           
@@ -144,7 +145,46 @@ namespace C0731909_a4
             }
 
         }
-      
+        public void Averagenumber()
+        {
+
+            using (StreamReader sr = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt"))
+            {
+                string line;
+                int counter = 0;
+                int b = 0, myWord = 1;
+                int averageLetterPerWord;
+                int counterletters = 0;
+                int countspaces = 0;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    Beowulf.Add(line);
+                    FindNumberOfBlankSpaces(line);
+                    counter++;
+
+                    while (b <= line.Length - 1)
+                    {
+                        if (line[b] == ' ' || line[b] == '\n' || line[b] == '\t')
+                        {
+                            myWord++;
+                        }
+                        b++;
+                    }
+                    b = 0;
+
+                }
+
+                averageLetterPerWord = counterletters / countspaces;
+
+                Console.WriteLine("\n\n\n\n********************************\nThe number of lines in the paragraph is " + counter);
+                Console.WriteLine("The number of words in paragraph is " + myWord);
+                Console.WriteLine("The number of average letters per word is " + averageLetterPerWord);
+                Console.ReadLine();
+            }
+        }
+
 
 
 

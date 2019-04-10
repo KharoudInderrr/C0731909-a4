@@ -17,6 +17,7 @@ namespace C0731909_a4
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
+            p.Run();
 
         }
 
@@ -26,7 +27,27 @@ namespace C0731909_a4
         }
         public void ReadTextFiles()
             {
+            using (StreamReader file = new StreamReader("U:/Users/731909/C0731909-a4.txt"))
+            {
+
+                int counter = 0;
+                string ln;
+                while((ln = file.ReadLine()) != null)
+                {
+                    Console.WriteLine(ln);
+                    Beowulf.Add(ln);
+
+                }
+                file.Close();
+                Console.WriteLine($"File has{counter} lines");
+
+
+
+
+            }
 
         }
+
+       
     }
 }

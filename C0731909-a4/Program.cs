@@ -13,11 +13,15 @@ namespace C0731909_a4
     class Program
     {
         ArrayList Beowulf;
+        int linecount =  0 ;
+        
+        
         static void Main(string[] args)
         {
             Program p = new Program();
             p.Beowulf = new ArrayList();
             p.Run();
+
 
         }
 
@@ -60,6 +64,22 @@ namespace C0731909_a4
             }
             return countSpaces;
         }
+
+        public void lineCount()
+        {
+            string line;
+            TextReader reader = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt");
+            while((line = reader.ReadLine()) != null)
+            {
+                linecount++;
+            }
+            reader.Close();
+
+        }
+       
+   
+
+       
 
        
     }

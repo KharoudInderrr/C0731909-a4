@@ -14,7 +14,8 @@ namespace C0731909_a4
     {
         ArrayList Beowulf;
         int linecount = 0;
-        
+         ArrayList lineNumbers2 = new ArrayList();
+        int linenumber= 1;
 
 
         static void Main(string[] args)
@@ -182,8 +183,26 @@ namespace C0731909_a4
                 Console.WriteLine("The number of words in paragraph is " + myWord);
                 Console.WriteLine("The number of average letters per word is " + averageLetterPerWord);
                 Console.ReadLine();
+
+
+
+
+               
+
+                // SECTION D
+                if (line.Substring(0).Contains("fare") || line.Substring(0).Contains("Fare"))
+                {
+                    if (!(line.Substring(0).Contains("war") || line.Substring(0).Contains("War")))
+                    {
+                        lineNumbers2.Add(linenumber);
+                    }
+                    Console.WriteLine(linenumber);
+
+                }
             }
         }
+
+
 
 
 

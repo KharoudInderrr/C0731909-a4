@@ -14,6 +14,7 @@ namespace C0731909_a4
     {
         ArrayList Beowulf;
         int linecount = 0;
+        
 
 
         static void Main(string[] args)
@@ -23,6 +24,10 @@ namespace C0731909_a4
             p.Run();
             p.lineCount();
             p.countWords();
+            p.Foundnumber();
+          
+           
+          
 
 
         }
@@ -103,6 +108,43 @@ namespace C0731909_a4
 
         }
 
+        public void Foundnumber()
+        {
+            using (StreamReader file = new StreamReader("U:/Users/731909/C0731909-a4/Beowulf.txt"))
+
+            {
+                int counter = 0;
+
+                int number = 0;
+
+                string line;
+
+                while ((line = file.ReadLine()) != null)
+
+                {
+
+                    if (line.Contains("Sea") && line.Contains("Fare") || line.Contains("sea") && line.Contains("fare"))
+
+                    {
+
+                        int x = counter - 1;
+
+                        number++;
+
+                    }
+
+                    counter++;
+
+                }
+
+                Console.WriteLine($"The number of lines that contains *Sea* and *Fare* are {number}");
+
+                file.Close();
+
+            }
+
+        }
+      
 
 
 
@@ -110,5 +152,9 @@ namespace C0731909_a4
 
 
 
-    }
+
+
+
+
+        }
 }
